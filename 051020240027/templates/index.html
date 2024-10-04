@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Индивидуальные расписания</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Индивидуальные расписания</h1>
+        <h2>Новое расписание</h2>
+        <form action="/create_schedule" method="POST">
+            <button type="submit">Создать расписание</button>
+        </form>
+        <h2>Введите Пароль расписания для просмотра и редактирования ранее созданного расписания</h2>
+        <form action="/view_schedule" method="POST">
+            <input type="text" name="password" placeholder="Пароль расписания" required>
+            <button type="submit">Открыть расписание</button>
+        </form>
+    </div>
+</body>
+</html>

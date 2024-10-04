@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расписание</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Расписание: {{ schedule.password }}</h1>
+        <form method="POST">
+            <input type="text" name="when" placeholder="Когда?" required>
+            <input type="text" name="where" placeholder="Где?">
+            <input type="text" name="who" placeholder="Кто?">
+            <button type="submit">Сохранить</button>
+        </form>
+        <h2>Сохраненные события:</h2>
+        <div class="events">
+            {% for event in events %}
+                <div class="event">
+                    <p>{{ event.when }} - {{ event.where }} - {{ event.who }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
